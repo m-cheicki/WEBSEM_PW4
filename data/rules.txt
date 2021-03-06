@@ -1,0 +1,10 @@
+@prefix ns: <http://www.owl-ontologies.com/unnamed.owl#>.
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+
+
+[rule1: (?per rdf:type ns:Personne)  (?per ns:age ?age) greaterThan(?age, 60)-> (?per rdf:type ns:PersonneAge)]
+[ruleGM: (?gm rdf:type ns:Person) (?gm ns:isMotherOf ?parent) (?parent ns:isParentOf ?pers) -> (?gm rdf:type ns:GrandMother)]
+[ruleGF: (?gf rdf:type ns:Person) (?gf ns:isFatherOf ?parent) (?parent ns:isParentOf ?pers) -> (?gf rdf:type ns:GrandFather)]
+[Bro: (?b rdf:type ns:Person) (?b ns:isSonOf ?parent) (?parent ns:isFatherOf ?pers) notEqual(?b, ?pers) -> (?b ns:isBrotherOf ?pers)]
+[Sis: (?s rdf:type ns:Person) (?b ns:isDaughterOf ?parent) (?parent ns:isMotherOf ?pers) notEqual(?s, ?pers) -> (?s ns:isSisterOf ?pers)]
+[Uncle: (?uncle rdf:type ns:Person) (?child ns:isChildOf ?parent) (?parent ns:isBrotherOf ?uncle) -> (?uncle ns:isUncleOf ?child)]
