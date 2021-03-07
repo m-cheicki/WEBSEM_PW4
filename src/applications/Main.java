@@ -6,6 +6,7 @@
 package applications;
 
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.RDFNode;
 
 import tools.JenaEngine;
 
@@ -54,7 +55,7 @@ public class Main {
 //			}
 			
 			
-			String test = Person.getPartner(inferedModel, NS, "Rob"); 
+			RDFNode test = JenaEngine.getValueOfObjectProperty(inferedModel, NS, "Rob", "isMarriedWith"); 
 			System.out.println(test); 
 			
 		} 

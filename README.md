@@ -454,10 +454,12 @@ Query n°15
 -   Add a new functionality in the JenaEngine class that allows to read the value of property of type ObjectType (see the javadoc of the Jena API)
 -   Add a new functionality in the JenaEngine class that allows to read the value of property of type DataType (see the javadoc of the Jena API)
 -   Create a new class in the application package that
-    a. Read a name of a person
+
+    a. Read a name of a person2021 - ESILV A4 | Practice Works for
     b. Display his/her parents, brothers and sisters.
     c. If this person is married, display the name and age of her husband/his wife
-    d. If this person is not married Display all the persons 
-	- whose gender is different,
-    - whose age is close (+/- 5 years) and
-    - is not married
+    d. If this person is not married Display all the persons
+
+    -   whose gender is different,
+    -   whose age is close (+/- 5 years) and
+    -   is not married
