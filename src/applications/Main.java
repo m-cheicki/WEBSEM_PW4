@@ -5,9 +5,7 @@
 
 package applications;
 
-import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
-import com.hp.hpl.jena.rdf.model.RDFNode;
 
 import tools.JenaEngine;
 
@@ -55,7 +53,6 @@ public class Main {
 //				System.out.println(JenaEngine.executeQueryFile(inferedModel,"data/query_" + i + ".txt"));	
 //			}
 			
-			RDFNode test2 = JenaEngine.getValueOfDataTypeProperty(inferedModel, NS, "Nora", "age"); 
 			
 			String test = Person.getPartner(inferedModel, NS, "Rob"); 
 			System.out.println(test); 

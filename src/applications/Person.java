@@ -1,7 +1,5 @@
 package applications;
 
-import java.util.Arrays;
-
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.RDFNode;
