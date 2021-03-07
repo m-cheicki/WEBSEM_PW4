@@ -2,6 +2,7 @@ package applications;
 
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 
 import tools.JenaEngine;
@@ -16,6 +17,10 @@ public class Person {
 	
 	static public Literal getName(Model model, String namespace, String name) {
 		return JenaEngine.getValueOfDataTypeProperty(model, namespace, name, "name"); 
+	}
+	
+	static public Literal getAge(Model model, String namespace, String name) {
+		return JenaEngine.getValueOfDataTypeProperty(model, namespace, name, "age"); 
 	}
 	
 	static public RDFNode getParents(Model model, String namespace, String name, boolean isAFemale) {
@@ -49,4 +54,9 @@ public class Person {
 		return getPartnerName(model, namespace, name)+ " is his/her partner and that person is aged of " + getPartnerAge(model, namespace, name); 
 	}
 	
+	static public RDFNode getPersonWithGivenAgeDifference(Model model, String namespace, String name, int difference) {
+		RDFNode age = getAge(model, namespace, name); 
+		
+		return age; 
+	}
 }

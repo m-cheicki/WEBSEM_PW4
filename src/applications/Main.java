@@ -54,11 +54,11 @@ public class Main {
 //				System.out.println(JenaEngine.executeQueryFile(inferedModel,"data/query_" + i + ".txt"));	
 //			}
 			
-			
-			RDFNode test = JenaEngine.getValueOfObjectProperty(inferedModel, NS, "Rob", "isMarriedWith"); 
-			System.out.println(test); 
+			RDFNode test = Person.getPersonWithGivenAgeDifference(inferedModel, NS, "Peter", 20); 
+			System.out.println(test.toString().split("h")[0]);
 			
 		} 
+		
 		else {
 			System.out.println("Error when reading model from ontology");
 		}

@@ -455,7 +455,7 @@ Query n°15
 -   Add a new functionality in the JenaEngine class that allows to read the value of property of type DataType (see the javadoc of the Jena API)
 -   Create a new class in the application package that
 
-    a. Read a name of a person2021 - ESILV A4 | Practice Works for
+    a. Read a name of a person
     b. Display his/her parents, brothers and sisters.
     c. If this person is married, display the name and age of her husband/his wife
     d. If this person is not married Display all the persons
@@ -463,3 +463,11 @@ Query n°15
     -   whose gender is different,
     -   whose age is close (+/- 5 years) and
     -   is not married
+
+## TODOs :
+
+-   NullPointerException handling
+-   Display several results (not only a single results)
+-   Find how to get the gender of a person (in other to chnage several methods : getParents, getSiblings, and for the last point asked)
+-   Find how to get if someone is married or not
+-   Whose age is close (+/- 5 years)
