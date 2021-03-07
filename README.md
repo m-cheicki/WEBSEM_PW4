@@ -456,8 +456,11 @@ Query n°15
 -   Create a new class in the application package that
 
     a. Read a name of a person
+    
     b. Display his/her parents, brothers and sisters.
+    
     c. If this person is married, display the name and age of her husband/his wife
+    
     d. If this person is not married Display all the persons
 
     -   whose gender is different,
