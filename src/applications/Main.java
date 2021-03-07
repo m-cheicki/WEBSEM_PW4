@@ -33,6 +33,7 @@ public class Main {
 			// Modify the model
 			// Add a woman in the model : Nora, 50, estFilleDe Peter
 			JenaEngine.createInstanceOfClass(model, NS, "Female", "Nora");
+			JenaEngine.updateValueOfDataTypeProperty(model, NS, "Nora", "name", "Nora");
 			JenaEngine.updateValueOfDataTypeProperty(model, NS, "Nora", "age", 50);
 			JenaEngine.updateValueOfObjectProperty(model, NS, "Nora", "isDaughterOf", "Peter");
 			
@@ -49,20 +50,15 @@ public class Main {
 			Model inferedModel = JenaEngine.readInferencedModelFromRuleFile(owlInferencedModel, "data/rules.txt");
 			
 			// Queries on the model after inference
-			for(int i = 0; i < 16; i++) {
-				System.out.println("Query n°" + i);
-				System.out.println(JenaEngine.executeQueryFile(inferedModel,"data/query_" + i + ".txt"));	
-			}
+//			for(int i = 0; i < 16; i++) {
+//				System.out.println("Query n°" + i);
+//				System.out.println(JenaEngine.executeQueryFile(inferedModel,"data/query_" + i + ".txt"));	
+//			}
 			
-			Literal noraAge = JenaEngine.getValueOfDataTypeProperty(model, NS, "Nora", "age"); 
-			RDFNode robPartner = JenaEngine.getValueOfObjectProperty(model, NS, "Rob", "isMarriedWith"); 
+			RDFNode test2 = JenaEngine.getValueOfDataTypeProperty(inferedModel, NS, "Nora", "age"); 
 			
-			System.out.println(noraAge);
-			System.out.println(robPartner);
-			
-			
-			Literal robName = Person.getName(model, NS, "Rob"); 
-			System.out.println(robName);
+			String test = Person.getPartner(inferedModel, NS, "Rob"); 
+			System.out.println(test); 
 			
 		} 
 		else {

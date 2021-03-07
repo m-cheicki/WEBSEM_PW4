@@ -1,5 +1,7 @@
 package applications;
 
+import java.util.Arrays;
+
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.RDFNode;
@@ -18,45 +20,35 @@ public class Person {
 		return JenaEngine.getValueOfDataTypeProperty(model, namespace, name, "name"); 
 	}
 	
-	static private RDFNode getFather() {
-		return null; 
+	static public RDFNode getParents(Model model, String namespace, String name, boolean isAFemale) {
+		return isAFemale ? 
+				JenaEngine.getValueOfObjectProperty(model, namespace, name, "isDaughterOf") : 
+				JenaEngine.getValueOfObjectProperty(model, namespace, name, "isSonOf");
 	}
 	
-	static private RDFNode getMother() {
-		return null; 
+	static public RDFNode getSiblings(Model model, String namespace, String name, boolean isAFemale) {
+		return isAFemale ? 
+				JenaEngine.getValueOfObjectProperty(model, namespace, name, "isSisterOf") : 
+				JenaEngine.getValueOfObjectProperty(model, namespace, name, "isBrotherOf"); 
 	}
 	
-	static public RDFNode getParents() {
-		return null; 
+
+	static private RDFNode isMarriedWith(Model model, String namespace, String name) {
+		return JenaEngine.getValueOfObjectProperty(model, namespace, name, "isMarriedWith"); 
 	}
 	
-	static private RDFNode getBbrothers() {
-		return null; 
+	static public String getPartnerName(Model model, String namespace, String name) {
+		RDFNode partner = isMarriedWith(model, namespace, name); 
+		return partner.toString().split("#")[1]; 
 	}
 	
-	static private RDFNode getSisters() {
-		return null; 
+	static public RDFNode getPartnerAge(Model model, String namespace, String name) {
+		String partner = getPartnerName(model, namespace, name); 
+		return JenaEngine.getValueOfDataTypeProperty(model, namespace, partner, "age"); 
 	}
 	
-	static public RDFNode getSiblings() {
-		return null; 
+	static public String getPartner(Model model, String namespace, String name) {
+		return getPartnerName(model, namespace, name)+ " is his/her partner and that person is aged of " + getPartnerAge(model, namespace, name); 
 	}
-	
-	static private boolean isMarried() {
-		return false; 
-	}
-	
-	static public RDFNode getPartner() {
-		return null; 
-	}
-	
-	static public RDFNode getPartnerName() {
-		return null; 
-	}
-	
-	static public RDFNode getPartnerAge() {
-		return null; 
-	}
-	
 	
 }

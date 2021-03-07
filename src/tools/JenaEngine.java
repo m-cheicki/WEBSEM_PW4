@@ -20,6 +20,7 @@ import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Literal;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.NodeIterator;
 import com.hp.hpl.jena.rdf.model.Property;
 import com.hp.hpl.jena.rdf.model.RDFNode;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -210,8 +211,10 @@ public class JenaEngine {
      * @return Statement
      */
     static private Statement getValueofProperty(Model model, String namespace, String object, String property) {
+    	 
     	Resource res = model.getResource(namespace + object); 
     	Property p = model.getProperty(namespace + property); 
+    	
     	return res.getProperty(p); 
     }
     
@@ -285,7 +288,7 @@ public class JenaEngine {
     static public Literal getValueOfDataTypeProperty(Model model, String namespace, String object, String property) {
     	return getValueofProperty(model, namespace, object, property).getLiteral(); 
     }
-    
+        
     /**
      * Mettre a jour la valeur d'une propriete datatype d'une Instance
      * @param args
