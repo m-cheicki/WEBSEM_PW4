@@ -49,13 +49,15 @@ public class Main {
 			Model inferedModel = JenaEngine.readInferencedModelFromRuleFile(owlInferencedModel, "data/rules.txt");
 			
 			// Queries on the model after inference
-//			for(int i = 0; i < 16; i++) {
-//				System.out.println("Query n°" + i);
-//				System.out.println(JenaEngine.executeQueryFile(inferedModel,"data/query_" + i + ".txt"));	
-//			}
+			for(int i = 0; i < 16; i++) {
+				System.out.println("Query n°" + i);
+				System.out.println(JenaEngine.executeQueryFile(inferedModel,"data/query_" + i + ".txt"));	
+			}
 			
-			RDFNode test = Person.getPersonWithGivenAgeDifference(inferedModel, NS, "Peter", 20); 
-			System.out.println(test.toString().split("h")[0]);
+			RDFNode ageRob = JenaEngine.getValueOfDataTypeProperty(inferedModel, NS, "Rob", "age"); 
+			RDFNode robAge = Person.getAge(inferedModel, NS, "Rob"); 
+			System.out.println(ageRob);
+			System.out.println(robAge);
 			
 		} 
 		
